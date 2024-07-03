@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Profile.css";
 
 function Profile() {
-  return <div className="profile_view"></div>;
+  return <div className="Profile_View"></div>;
 }
 
 export default Profile;
