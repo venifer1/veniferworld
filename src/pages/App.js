@@ -10,15 +10,19 @@ import Contact from "../components/Contact";
 
 function App() {
   return (
-    <div>
-      <Logo></Logo>
-      <Nav></Nav>
-      <Main></Main>
-      <Profile></Profile>
-      <About></About>
-      <Skills></Skills>
-      <Projects></Projects>
-      <Contact></Contact>
+    <div className="AppView">
+      <div className="Left">
+        <Logo></Logo>
+        <Nav></Nav>
+      </div>
+      <div className="Right">
+        <Main></Main>
+        <Profile></Profile>
+        <About></About>
+        <Skills></Skills>
+        <Projects></Projects>
+        <Contact></Contact>
+      </div>
     </div>
   );
 }

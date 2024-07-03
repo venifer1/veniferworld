@@ -1,0 +1,68 @@
+/* fonts : Noto Sans KR */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+.MainView {
+  width: 1670px;
+  height: 953px;
+  background-image: url("../assets/images/MainViewBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.TransparentPlate {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 220px;
+}
+
+.Greetings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.Greetings .Content1 {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: 500;
+}
+
+.Greetings .Content2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  color: #ffffff;
+}
+
+.Greetings .Content3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  color: #ffffff;
+}
+
+.Greetings .Content2 .Left {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.Greetings .Content3 .Left {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.Greetings .Right {
+  font-size: 40px;
+  font-weight: 300;
+  margin-left: 10px;
+}
