@@ -125,10 +125,10 @@
   text-decoration: none;
 
   position: relative;
-  animation: moveUpDown 1.5s infinite;
+  animation: move3 1.5s infinite;
 }
 
-@keyframes moveUpDown {
+@keyframes move3 {
   0% {
     top: 0;
   }

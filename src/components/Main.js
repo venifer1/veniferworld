@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Main.css";
 import ScrollImg from "../assets/images/ScrollBar.png";
 import ArrowImg from "../assets/images/Arrow.png";
+import { Link } from "react-router-dom";
 
 function Main() {
   return (
@@ -21,12 +22,12 @@ function Main() {
           </div>
         </div>
         <div className="ScrollButton">
-          <a href="/">
+          <Link to="/Profile">
             <p className="Text1">프 로 필</p>
             <p className="Text2">GO PROFILE</p>
             <img className="Img1" src={ScrollImg} alt="" />
             <img className="Img2" src={ArrowImg} alt="" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Skills.css";
 
 function Skills() {
-  return <div className="Skills_View"></div>;
+  return <div className="SkillsView"></div>;
 }
 
 export default Skills;

@@ -10,6 +10,7 @@ button {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 600;
   border: none;
+  text-decoration: none;
 }
 
 button:hover {

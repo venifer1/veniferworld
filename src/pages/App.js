@@ -7,22 +7,27 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="AppView">
-      <div className="Left">
-        <Logo></Logo>
-        <Nav></Nav>
-      </div>
-      <div className="Right">
-        <Main></Main>
-        <Profile></Profile>
-        <About></About>
-        <Skills></Skills>
-        <Projects></Projects>
-        <Contact></Contact>
-      </div>
+      <BrowserRouter>
+        <div className="Left">
+          <Logo></Logo>
+          <Nav></Nav>
+        </div>
+        <div className="Right">
+          <Routes>
+            <Route path="/" element={<Main />}></Route>
+            <Route path="/Profile" element={<Profile />}></Route>
+            <Route path="/About" element={<About />}></Route>
+            <Route path="/Skills" element={<Skills />}></Route>
+            <Route path="/Projects" element={<Projects />}></Route>
+            <Route path="/Contact" element={<Contact />}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
