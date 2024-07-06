@@ -3,4 +3,125 @@
 .ProfileView {
   width: 1670px;
   height: 953px;
+  padding: 0px 50px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff;
+  border-top: solid 20px #0099ef;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ProfileHeader {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.ProfileHeader .Left {
+  font-size: 80px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.ProfileHeader .Right {
+  font-size: 30px;
+  font-weight: 600;
+  color: #888888;
+  margin-left: 22px;
+  margin-bottom: 15px;
+  letter-spacing: 8px;
+}
+
+.ProfileContent {
+  width: 100%;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.ProfileContent .Content1 {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0px 20px 0px 20px;
+  border-right: solid 5px #777777;
+}
+
+.ProfileContent .Content1 .ProfileInfo {
+  font-size: 25px;
+  line-height: 1.6em;
+}
+
+.ProfileContent .Content1 img {
+  margin-bottom: 20px;
+}
+
+.ProfileContent .Content2 {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 0px 20px 0px 20px;
+  border-right: solid 5px #777777;
+}
+
+.ProfileContent .Content2 .EducationInfo {
+  font-size: 25px;
+  line-height: 1.6em;
+}
+
+.ProfileContent .Content2 .ExperienceInfo {
+  font-size: 25px;
+  line-height: 1.6em;
+}
+
+.ProfileContent .Content2 .LicenseInfo {
+  font-size: 25px;
+  line-height: 1.6em;
+}
+
+.ProfileContent .Content3 {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 0px 15px 0px 15px;
+}
+
+.ProfileContent .Content3 .SkillsInfo {
+  font-size: 25px;
+  line-height: 1.6em;
+}
+
+.ProfileContent .Content3 .AwardInterviewInfo {
+  font-size: 23px;
+  line-height: 1.6em;
 }

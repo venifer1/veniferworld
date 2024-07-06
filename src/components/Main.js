@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Main.css";
 import ScrollImg from "../assets/images/ScrollBar.png";
 import ArrowImg from "../assets/images/Arrow.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
+  const [fadeOut, setFadeOut] = useState(false);
+  const navigate = useNavigate();
+  const handleWheelClick = (event) => {
+    setFadeOut(true);
+    setTimeout(() => {
+      navigate("/Profile");
+    }, 1000);
+  };
+
   return (
-    <div className="MainView">
+    <div id={fadeOut ? "fadeAni" : ""} className="MainView">
       <div className="TransparentPlate">
         <div className="Greetings">
           <div className="Content1">
@@ -21,8 +30,8 @@ function Main() {
             <p className="Right">입니다.</p>
           </div>
         </div>
-        <div className="ScrollButton">
-          <Link to="/Profile">
+        <div className="ScrollButton" onWheel={handleWheelClick}>
+          <Link onClick={handleWheelClick}>
             <p className="Text1">프 로 필</p>
             <p className="Text2">GO PROFILE</p>
             <img className="Img1" src={ScrollImg} alt="" />
