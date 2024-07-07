@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
   border-top: solid 20px #0099ef;
   animation: fadeIn 1s forwards;
 }
@@ -113,7 +113,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
-  padding: 0px 15px 0px 15px;
+  padding: 0px 20px 0px 20px;
 }
 
 .ProfileContent .Content3 .SkillsInfo {
