@@ -1,0 +1,47 @@
+.contentBtn {
+    width: 427px;
+    height: 100px;
+    font-family: 'Noto sans KR', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.contentBtn:hover {
+    background-color: #fcfcfc;
+    border: solid 5px #141840;
+    .Top {
+        color: #141840;
+    }
+    .Bottom {
+        color: #141840;
+    }
+    transition: all 0.15s linear;
+}
+
+.prev {
+    background-color: #303030;
+}
+
+.next {
+    background-color: #303030;
+}
+
+.jump {
+    background-color: #141840;
+}
+
+.Top {
+    font-size: 30px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.Bottom {
+    font-size: 20px;
+    font-weight: 600;
+    color: #aaaaaa;
+}

@@ -3,21 +3,26 @@ import "../styles/Profile.css";
 import ProfileContentHeader from "./ProfileContentHeader";
 import MyProfileImage from "../assets/images/Me.png";
 import axios from "axios";
+import ContentButton from "./ContentButton";
 
 function Profile() {
+
   const serverAddr = "http://localhost:7979";
+
   const profileInfoAddr = serverAddr + "/RestApi/ProfileInfo";
-  const [profileInfoItems, setProfileInfoItems] = useState([]);
   const educationInfoAddr = serverAddr + "/RestApi/EducationInfo";
-  const [educationInfoItems, setEducationInfoItems] = useState([]);
   const experienceInfoAddr = serverAddr + "/RestApi/ExperienceInfo";
-  const [experienceInfoItems, setExperienceInfoItems] = useState([]);
   const licenseInfoAddr = serverAddr + "/RestApi/LicenseInfo";
-  const [licenseInfoItems, setLicenseInfoItems] = useState([]);
   const skillsInfoAddr = serverAddr + "/RestApi/SkillsInfo";
-  const [skillsInfoItems, setSkillsInfoItems] = useState([]);
   const awardInterviewInfoAddr = serverAddr + "/RestApi/AwardInterviewInfo";
+  const [profileInfoItems, setProfileInfoItems] = useState([]);
+  const [educationInfoItems, setEducationInfoItems] = useState([]);
+  const [experienceInfoItems, setExperienceInfoItems] = useState([]);
+  const [licenseInfoItems, setLicenseInfoItems] = useState([]);
+  const [skillsInfoItems, setSkillsInfoItems] = useState([]);
   const [awardInterviewInfoItems, setAwardInterviewInfoItems] = useState([]);
+
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     fetchProfileInfo();
@@ -83,7 +88,7 @@ function Profile() {
   };
 
   return (
-    <div className="ProfileView">
+    <div id={fadeOut ? "fadeAni" : ""} className="ProfileView">
       <div className="ProfileHeader">
         <p className="Left">Park Min Gyu</p>
         <p className="Right">DEVELOPER</p>
@@ -100,9 +105,7 @@ function Profile() {
         </div>
         <div className="Content2">
           <div className="Education">
-            <ProfileContentHeader
-              headerName={"EDUCATION"}
-            ></ProfileContentHeader>
+            <ProfileContentHeader headerName={"EDUCATION"}></ProfileContentHeader>
             <div className="EducationInfo">
               {educationInfoItems.map((item, index) => (
                 <p key={index}>{item}</p>
@@ -110,9 +113,7 @@ function Profile() {
             </div>
           </div>
           <div className="Experience">
-            <ProfileContentHeader
-              headerName={"EXPERIENCE"}
-            ></ProfileContentHeader>
+            <ProfileContentHeader headerName={"EXPERIENCE"}></ProfileContentHeader>
             <div className="ExperienceInfo">
               {experienceInfoItems.map((item, index) => (
                 <p key={index}>{item}</p>
@@ -138,9 +139,7 @@ function Profile() {
             </div>
           </div>
           <div className="AwardInterview">
-            <ProfileContentHeader
-              headerName={"AWARD&INTERVIEW"}
-            ></ProfileContentHeader>
+            <ProfileContentHeader headerName={"AWARD&INTERVIEW"}></ProfileContentHeader>
             <div className="AwardInterviewInfo">
               {awardInterviewInfoItems.map((item, index) => (
                 <p key={index}>{item}</p>
@@ -149,7 +148,9 @@ function Profile() {
           </div>
         </div>
       </div>
-      <div className="ProfileButton"></div>
+      <div className="ProfileButton">
+        <ContentButton buttonType={"1"} updateSetFadeout={setFadeOut}></ContentButton>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-button {
+.NavView button {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -13,23 +13,23 @@ button {
   text-decoration: none;
 }
 
-button:hover {
+.NavView button:hover {
   background-color: #222222;
   cursor: pointer;
   transition: all 0.2s linear;
 }
-button:hover p {
+.NavView button:hover p {
   color: #f0e68c;
   transition: all 0.2s linear;
 }
 
-button .left {
+.NavView button .left {
   color: #ffffff;
   font-size: 25px;
   margin-left: 25px;
 }
 
-button .right {
+.NavView button .right {
   color: #aaaaaa;
   font-size: 17px;
   margin-left: 5px;

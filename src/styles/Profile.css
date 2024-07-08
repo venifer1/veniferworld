@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-
 .ProfileView {
   width: 1670px;
   height: 953px;
   padding: 0px 50px 0px 50px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #fcfcfc;
   border-top: solid 20px #0099ef;
@@ -22,9 +20,21 @@
   }
 }
 
+#fadeAni {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .ProfileHeader {
   width: 100%;
-  margin-top: 25px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -49,7 +59,6 @@
 
 .ProfileContent {
   width: 100%;
-  margin-top: 45px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -124,4 +133,11 @@
 .ProfileContent .Content3 .AwardInterviewInfo {
   font-size: 23px;
   line-height: 1.6em;
+}
+
+.ProfileButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
