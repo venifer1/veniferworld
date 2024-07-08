@@ -1,45 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/ContentButton.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function ContentButton({ buttonType, updateSetFadeout }) {
+
   const navigate = useNavigate();
 
-  const goButtonTypePrev = () => {
+  const { num } = useParams();
+  const numId = Number(num);
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const currentPathBuf = currentPath.substring(0, currentPath.lastIndexOf('/'));
 
+  const goButtonTypePrev = () => {
+    switch(numId) {
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        navigate(currentPathBuf + '/' + Number(numId-1));
+      default:
+    }
   }
   const goButtonTypeNext = () => {
-
+    switch(numId) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+          navigate(currentPathBuf + '/' + Number(numId+1));
+      default:
+    }
   }
   const goButtonType1 = () => {
     updateSetFadeout(true);
     setTimeout(() => {
-      navigate('/About');
+      navigate('/About/1');
     }, 1000);
   }
   const goButtonType2 = () => {
-    navigate('/Skills');
+    updateSetFadeout(true);
+    setTimeout(() => {
+      navigate('/Skills/1');
+    }, 1000);
   }
   const goButtonType3 = () => {
-    navigate('/Projects');
+    updateSetFadeout(true);
+    setTimeout(() => {
+      navigate('/Projects/1');
+    }, 1000);
   }
   const goButtonType4 = () => {
-    navigate('/Projects');
+    navigate('/Projects/3');
   }
   const goButtonType5 = () => {
-    navigate('/Contact');
+    updateSetFadeout(true);
+    setTimeout(() => {
+      navigate('/Contact');
+    }, 1000);
   }
 
   if (buttonType === "prev") {
     return (
-      <button className="contentBtn prev">
+      <button onClick={goButtonTypePrev} className="contentBtn prev">
         <p className="Top">이전</p>
         <p className="Bottom">PREV</p>
       </button>
     );
   } else if (buttonType === "next") {
     return (
-      <button className='contentBtn next'>
+      <button onClick={goButtonTypeNext} className='contentBtn next'>
         <p className='Top'>다음</p>
         <p className='Bottom'>NEXT</p>
       </button>
