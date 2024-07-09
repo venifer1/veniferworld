@@ -19,7 +19,9 @@ function ContentButton({ buttonType, updateSetFadeout }) {
       case 4:
       case 5:
         navigate(currentPathBuf + '/' + Number(numId-1));
+        break;
       default:
+        break;
     }
   }
   const goButtonTypeNext = () => {
@@ -28,8 +30,10 @@ function ContentButton({ buttonType, updateSetFadeout }) {
       case 2:
       case 3:
       case 4:
-          navigate(currentPathBuf + '/' + Number(numId+1));
+        navigate(currentPathBuf + '/' + Number(numId+1));
+        break;
       default:
+        break;
     }
   }
   const goButtonType1 = () => {

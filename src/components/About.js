@@ -1,13 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/About.css";
-import ContentButton from "./ContentButton";
 import AboutImg from "../assets/images/Me.png";
+import ContentButton from "./ContentButton";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function About() {
   const [fadeOut, setFadeOut] = useState(false);
   const { num } = useParams();
   const numId = Number(num);
+
+  const serverAddr = "http://localhost:7979";
+
+  const LeaveFirmwareAddr = serverAddr + "/RestApi/LeaveFirmware";
+  const BecomeWebDevAddr = serverAddr + "/RestApi/BecomeWebDev";
+  const MottoAddr = serverAddr + "/RestApi/Motto";
+  const [LeaveFirmwareItems, setLeaveFirmwareItems] = useState([]);
+  const [BecomeWebDevItems, setBecomeWebDevItems] = useState([]);
+  const [MottoItems, setMottoItems] = useState([]);
+
+  useEffect(() => {
+    fetchLeaveFirmware();
+    fetchBecomeWebDev();
+    fetchMotto();
+  }, []);
+
+  const fetchLeaveFirmware = async () => {
+    try {
+      const response = await axios.get(LeaveFirmwareAddr);
+      setLeaveFirmwareItems(response.data);
+    } catch (error) {
+      console.error("Error fetchLeaveFirmware", error);
+    }
+  };
+
+  const fetchBecomeWebDev = async () => {
+    try {
+      const response = await axios.get(BecomeWebDevAddr);
+      setBecomeWebDevItems(response.data);
+    } catch (error) {
+      console.error("Error fetchBecomeWebDev", error);
+    }
+  };
+
+  const fetchMotto = async () => {
+    try {
+      const response = await axios.get(MottoAddr);
+      setMottoItems(response.data);
+    } catch (error) {
+      console.error("Error fetchMotto", error);
+    }
+  };
 
   switch (numId) {
     case 1:
@@ -57,7 +100,7 @@ function About() {
             </div>
           </div>
           <div className="AboutButton">
-            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
+            <ContentButton buttonType={"next"}></ContentButton>
           </div>
         </div>
       );
@@ -68,31 +111,52 @@ function About() {
             <p className="Left">Park Min Gyu</p>
             <p className="Right">DEVELOPER</p>
           </div>
-          <div className="AboutContent">
-            <div className="Left">
+          <div className="AboutContent2">
+            <div className="Top">
               <div>
-                <p className="Title"></p>
-                <p className="Content"></p>
+                <p className="Title">▶ 왜 펌웨어를 떠나는가?</p>
+                <p className="Content">
+                  {LeaveFirmwareItems.map((item, index) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </p>
               </div>
               <div>
-                <p className="Title"></p>
-                <p className="Content"></p>
+                <p className="Title">▶ 왜 웹 개발자가 되고싶은가?</p>
+                <p className="Content">
+                  {BecomeWebDevItems.map((item, index) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </p>
               </div>
             </div>
-            <div className="Right">
+            <div className="Bottom">
               <div>
-                <p className="Title"></p>
-                <p className="Content"></p>
+                <p className="Title">▶ 성격의 장단점</p>
+                <p className="Content">
+                  저의 성격은 논리적이고 계획적이며 섬세하고 아주 작은 변화도
+                  캐치할 수 있을 만큼 꼼꼼하지만, 그만큼 생각이 많은 편이며
+                  상대적으로 스트레스를 많이 받는 편입니다.
+                </p>
               </div>
               <div>
-                <p className="Title"></p>
-                <p className="Content"></p>
+                <p className="Title">▶ 직업관</p>
+                <p className="Content">
+                  {MottoItems.map((item, index) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </p>
               </div>
             </div>
           </div>
           <div className="AboutButton">
-            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
-            <ContentButton buttonType={"2"} updateSetFadeout={setFadeOut} ></ContentButton>
+            <ContentButton
+              buttonType={"prev"}
+            ></ContentButton>
+            <ContentButton
+              buttonType={"2"}
+              updateSetFadeout={setFadeOut}
+            ></ContentButton>
           </div>
         </div>
       );

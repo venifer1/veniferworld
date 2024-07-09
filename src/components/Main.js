@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/Main.css";
 import ScrollImg from "../assets/images/ScrollBar.png";
 import ArrowImg from "../assets/images/Arrow.png";
 import { Link, useNavigate } from "react-router-dom";

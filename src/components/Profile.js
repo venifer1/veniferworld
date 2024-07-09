@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Profile.css";
-import ProfileContentHeader from "./ProfileContentHeader";
 import MyProfileImage from "../assets/images/Me.png";
+import ProfileContentHeader from "./ProfileContentHeader";
 import axios from "axios";
 import ContentButton from "./ContentButton";
 
