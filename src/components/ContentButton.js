@@ -63,6 +63,9 @@ function ContentButton({ buttonType, updateSetFadeout }) {
       navigate('/Contact');
     }, 1000);
   }
+  const goButtonType6 = () => {
+    navigate('/');
+  }
 
   if (buttonType === "prev") {
     return (
@@ -111,6 +114,13 @@ function ContentButton({ buttonType, updateSetFadeout }) {
       <button onClick={goButtonType5} className='contentBtn jump'>
         <p className='Top'>연락처</p>
         <p className='Bottom'>GO CONTACT</p>
+      </button>
+    );
+  } else if (buttonType === "6") {
+    return (
+      <button onClick={goButtonType6} id="onlyContact" className='contentBtn jump'>
+        <p className='Top'>메인으로</p>
+        <p className='Bottom'>GO MAIN</p>
       </button>
     );
   }

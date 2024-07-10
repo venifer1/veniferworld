@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/Skills.css";
 import { useParams } from "react-router-dom";
 import ContentButton from "./ContentButton";
@@ -53,6 +53,7 @@ function Skills() {
         </div>
       );
     default:
+      break;
   }
   
 }

@@ -161,6 +161,7 @@ function About() {
         </div>
       );
     default:
+      break;
   }
 }
 
