@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "../styles/SkillsContent.css";
 import SkillsImg1 from "../assets/images/S1.png";
 import SkillsImg2 from "../assets/images/S2.png";
@@ -21,6 +21,8 @@ function SkillsContent ( { ContentType } ) {
     let ContentProject;
     let ContentDetail;
     let ContentImg;
+    
+    const [contentImgUrl, setContentImgUrl] = useState('');
 
     switch (num) {
         case 1:
@@ -103,7 +105,6 @@ function SkillsContent ( { ContentType } ) {
         default:
             break;
     }
-
 
     switch (num) {
         case 1:

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "../styles/About.css";
 import AboutImg from "../assets/images/Me.png";
 import ContentButton from "./ContentButton";

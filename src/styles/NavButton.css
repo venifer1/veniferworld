@@ -34,3 +34,13 @@
   font-size: 17px;
   margin-left: 5px;
 }
+
+#active {
+  background-color: #222222;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  p {
+    color: #f0e68c;
+    transition: all 0.2s linear;
+  }
+}

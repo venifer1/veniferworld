@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "../styles/Profile.css";
 import MyProfileImage from "../assets/images/Me.png";
 import ProfileContentHeader from "./ProfileContentHeader";
@@ -7,6 +7,7 @@ import ContentButton from "./ContentButton";
 
 function Profile() {
 
+  const [profileImgUrl, setProfileImgUrl] = useState('');
   const serverAddr = "http://localhost:7979";
 
   const profileInfoAddr = serverAddr + "/RestApi/ProfileInfo";
@@ -23,6 +24,10 @@ function Profile() {
   const [awardInterviewInfoItems, setAwardInterviewInfoItems] = useState([]);
 
   const [fadeOut, setFadeOut] = useState(false);
+
+  useLayoutEffect(() => {
+    setProfileImgUrl(MyProfileImage);
+  }, []);
 
   useEffect(() => {
     fetchProfileInfo();
@@ -95,7 +100,7 @@ function Profile() {
       </div>
       <div className="ProfileContent">
         <div className="Content1">
-          <img src={MyProfileImage} alt="" />
+          <img src={profileImgUrl} alt=""/>
           <ProfileContentHeader headerName={"PROFILE"}></ProfileContentHeader>
           <div className="ProfileInfo">
             {profileInfoItems.map((item, index) => (
