@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Projects.css";
 import { useParams } from "react-router-dom";
 import ContentButton from "./ContentButton";
+import NotFound from "./NotFound";
 import ImgP1_1 from "../assets/images/P1_1.png";
 import ImgP1_2 from "../assets/images/P1_2.png";
 import ImgP1_3 from "../assets/images/P1_3.png";
@@ -328,6 +329,9 @@ function Projects() {
         </div>
       );
     default:
+      return (
+        <NotFound></NotFound>
+      );
       break;
   }
 }

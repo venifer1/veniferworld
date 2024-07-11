@@ -3,6 +3,7 @@ import "../styles/Skills.css";
 import { useParams } from "react-router-dom";
 import ContentButton from "./ContentButton";
 import SkillsContent from "./SkillsContent";
+import NotFound from "./NotFound";
 
 function Skills() {
   const [fadeOut, setFadeOut] = useState(false);
@@ -53,6 +54,9 @@ function Skills() {
         </div>
       );
     default:
+      return (
+        <NotFound></NotFound>
+      );
       break;
   }
   

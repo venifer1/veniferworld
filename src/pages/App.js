@@ -8,6 +8,7 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
+import NotFound from "../components/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
             <Route path="/Skills/:num" element={<Skills />}></Route>
             <Route path="/Projects/:num" element={<Projects />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
+            <Route path="/*" element={<NotFound />}></Route>
+            <Route path="/NotFound" element={<NotFound/>}></Route>
           </Routes>
         </div>
       </BrowserRouter>

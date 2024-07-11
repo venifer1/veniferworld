@@ -2,7 +2,8 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import "../styles/About.css";
 import AboutImg from "../assets/images/Me.png";
 import ContentButton from "./ContentButton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import NotFound from "./NotFound";
 // import axios from "axios";
 
 function About() {
@@ -174,7 +175,9 @@ function About() {
         </div>
       );
     default:
-      break;
+      return (
+        <NotFound></NotFound>
+      );
   }
 }
 
