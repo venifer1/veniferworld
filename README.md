@@ -11,6 +11,6 @@ Figma : https://www.figma.com/design/yO9VgqGlWxFMTL998A1Y1z/React-%EA%B8%B0%EB%B
 - TypeScript로 변경
 - EC2 환경설정 및 Github 연동
 
-(완료) Url에 따른 Navigation Active 효과처리
-(완료) AWS S3 + Route 53 웹 호스팅
-(완료) CloudFront 연결하여 HTTPS 연결
+- (완료) Url에 따른 Navigation Active 효과처리
+- (완료) AWS S3 + Route 53 웹 호스팅
+- (완료) CloudFront 연결하여 HTTPS 연결
