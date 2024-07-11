@@ -3,54 +3,72 @@ import "../styles/About.css";
 import AboutImg from "../assets/images/Me.png";
 import ContentButton from "./ContentButton";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 function About() {
   const [fadeOut, setFadeOut] = useState(false);
   const { num } = useParams();
   const numId = Number(num);
 
-  const serverAddr = "http://localhost:7979";
+  let LeaveFirmware = [
+    "1. 대다수 펌웨어 개발자를 수요로 하는 직군은 제조업체인데, 거시경제 관점에서 향후 2~30년 간 제조업체의 전망은 개인적으로 좋지 않을 것으로 예상하기 때문입니다.",
+    "2. 진입장벽이 높고, 인력이 부족한 펌웨어 개발자에 대한 수요는 상당히 있는 편이나, 제조업체 운영의 핵심인 자재 비용과 최저시급이 상승함에 따라 제조업체는 펌웨어 개발자에 대한 처우를 고려할 여유가 없는 실정입니다.",
+    "3. 제조업체의 대세적인 흐름이 과거 유럽에서 동아시아로 넘어오면서 한국이 호황을 누렸으나, 향후에는 제조업체의 대세적인 흐름이 동남아시아로 이동할 것으로 개인적으로 예상하기 때문입니다.",
+  ];
+  let BecomeWebDev = [
+    "1. 대학교 재학 시절부터 웹 개발을 공부했었고, 특히 프론트엔드 개발은 시간이 가는 줄도 모를 만큼 재밌었고 가장 적성에 맞았습니다.",
+    "2. 2019년 졸업 직후 PHP 기반의 포트폴리오(개인 커뮤니티 웹 사이트)를 들고 취업전선에 뛰어들어 많은 최종 합격을 받았지만, 처우가 이상과는 괴리가 있어 상대적으로 처우가 괜찮았던 펌웨어 개발자가 되었었습니다.",
+    "3. 4년 반의 시간 동안 수많은 펌웨어 프로젝트를 진행하면서 연구소 개발 팀장이 되었으나, 경영악화로 인해 휴식기를 가지게 되었습니다.",
+    "4. 쉬면서 예전 웹 개발을 공부할 당시의 즐거움을 다시 느껴보고 싶다는 생각이 들어 웹 개발자가 되기 위한 기량을 끌어올리고 있습니다.",
+    "5. 펌웨어 개발자의 이력을 이어갈 수도 있지만, 어쩌면 지금 주어진 이 시간이 웹 개발자가 될 수 있는 마지막 기회라고 생각합니다.",
+  ];
+  let Motto = [
+    "1. '지금 이 힘듦은 내가 비로소 성장하기 위함이다.'",
+    "2. '누군가 해냈다면 나 역시 해내지 못할 이유가 없다.'",
+    "3. '열심히 하는 것은 당연한 것이고, 잘하는 사람이 되자.'",
+  ];
 
-  const LeaveFirmwareAddr = serverAddr + "/RestApi/LeaveFirmware";
-  const BecomeWebDevAddr = serverAddr + "/RestApi/BecomeWebDev";
-  const MottoAddr = serverAddr + "/RestApi/Motto";
-  const [LeaveFirmwareItems, setLeaveFirmwareItems] = useState([]);
-  const [BecomeWebDevItems, setBecomeWebDevItems] = useState([]);
-  const [MottoItems, setMottoItems] = useState([]);
+  // REST API CODE
+  // const serverAddr = "http://localhost:7979";
+  // const LeaveFirmwareAddr = serverAddr + "/RestApi/LeaveFirmware";
+  // const BecomeWebDevAddr = serverAddr + "/RestApi/BecomeWebDev";
+  // const MottoAddr = serverAddr + "/RestApi/Motto";
+  // const [LeaveFirmwareItems, setLeaveFirmwareItems] = useState([]);
+  // const [BecomeWebDevItems, setBecomeWebDevItems] = useState([]);
+  // const [MottoItems, setMottoItems] = useState([]);
 
-  useEffect(() => {
-    fetchLeaveFirmware();
-    fetchBecomeWebDev();
-    fetchMotto();
-  }, []);
+  // useEffect(() => {
+  //   fetchLeaveFirmware();
+  //   fetchBecomeWebDev();
+  //   fetchMotto();
+  // }, []);
 
-  const fetchLeaveFirmware = async () => {
-    try {
-      const response = await axios.get(LeaveFirmwareAddr);
-      setLeaveFirmwareItems(response.data);
-    } catch (error) {
-      console.error("Error fetchLeaveFirmware", error);
-    }
-  };
+  // const fetchLeaveFirmware = async () => {
+  //   try {
+  //     const response = await axios.get(LeaveFirmwareAddr);
+  //     setLeaveFirmwareItems(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetchLeaveFirmware", error);
+  //   }
+  // };
 
-  const fetchBecomeWebDev = async () => {
-    try {
-      const response = await axios.get(BecomeWebDevAddr);
-      setBecomeWebDevItems(response.data);
-    } catch (error) {
-      console.error("Error fetchBecomeWebDev", error);
-    }
-  };
+  // const fetchBecomeWebDev = async () => {
+  //   try {
+  //     const response = await axios.get(BecomeWebDevAddr);
+  //     setBecomeWebDevItems(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetchBecomeWebDev", error);
+  //   }
+  // };
 
-  const fetchMotto = async () => {
-    try {
-      const response = await axios.get(MottoAddr);
-      setMottoItems(response.data);
-    } catch (error) {
-      console.error("Error fetchMotto", error);
-    }
-  };
+  // const fetchMotto = async () => {
+  //   try {
+  //     const response = await axios.get(MottoAddr);
+  //     setMottoItems(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetchMotto", error);
+  //   }
+  // };
 
   switch (numId) {
     case 1:
@@ -116,7 +134,7 @@ function About() {
               <div>
                 <p className="Title">▶ 왜 펌웨어를 떠나는가?</p>
                 <p className="Content">
-                  {LeaveFirmwareItems.map((item, index) => (
+                  {LeaveFirmware.map((item, index) => (
                     <p key={index}>{item}</p>
                   ))}
                 </p>
@@ -124,7 +142,7 @@ function About() {
               <div>
                 <p className="Title">▶ 왜 웹 개발자가 되고싶은가?</p>
                 <p className="Content">
-                  {BecomeWebDevItems.map((item, index) => (
+                  {BecomeWebDev.map((item, index) => (
                     <p key={index}>{item}</p>
                   ))}
                 </p>
@@ -142,7 +160,7 @@ function About() {
               <div>
                 <p className="Title">▶ 직업관</p>
                 <p className="Content">
-                  {MottoItems.map((item, index) => (
+                  {Motto.map((item, index) => (
                     <p key={index}>{item}</p>
                   ))}
                 </p>
@@ -150,13 +168,8 @@ function About() {
             </div>
           </div>
           <div className="AboutButton">
-            <ContentButton
-              buttonType={"prev"}
-            ></ContentButton>
-            <ContentButton
-              buttonType={"2"}
-              updateSetFadeout={setFadeOut}
-            ></ContentButton>
+            <ContentButton buttonType={"prev"}></ContentButton>
+            <ContentButton buttonType={"2"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
