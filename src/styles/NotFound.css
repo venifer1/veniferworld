@@ -16,7 +16,7 @@
     text-align: center;
     transition: all 0.1s linear;
     position: relative;
-    animation: move1 1s infinite;
+    animation: move4 1s infinite;
 }
 
 .NotFoundView .Top {
@@ -26,7 +26,7 @@
     color: #0099ef;
 }
 
-@keyframes move1 {
+@keyframes move4 {
     0% {
       top: 0;
     }
