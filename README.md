@@ -4,11 +4,16 @@ Figma : https://www.figma.com/design/yO9VgqGlWxFMTL998A1Y1z/React-%EA%B8%B0%EB%B
 
 
 *** 추가 및 보완해야 할 사항 ***
-- 화면 전환 시 이미지 로드가 간혹 늦는 현상
 - Edge, Whale 브라우저에서 페이지 일부가 잘리는 현상
 - 반응형 웹 페이지
+- EC2 HTTPS 추가
 - TypeScript로 변경
+- 테스트코드
+- 페이지네이션
+- 무한스크롤
+- Form 만들어보기
 
+- (완료)화면 전환 시 이미지 로드가 간혹 늦는 현상
 - (완료) 404 not found 처리
 - (완료) Url에 따른 Navigation Active 효과처리
 - (완료) EC2 환경설정 및 Github 연동
