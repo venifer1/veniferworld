@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ScrollImg from "../assets/images/ScrollBar.png";
 import ArrowImg from "../assets/images/Arrow.png";
+import BackgroundImg from "../assets/images/MainViewBackground.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
@@ -13,8 +14,14 @@ function Main() {
     }, 1000);
   };
 
+  const [backgroundImgUrl, setBackgroundImgUrl] = useState('');
+
+  useLayoutEffect(() => {
+    setBackgroundImgUrl("url(" + BackgroundImg + ")");
+  }, []);
+
   return (
-    <div id={fadeOut ? "fadeAni" : ""} className="MainView">
+    <div id={fadeOut ? "fadeAni" : ""} className="MainView" style={{backgroundImage: backgroundImgUrl}}>
       <div className="TransparentPlate">
         <div className="Greetings">
           <div className="Content1">

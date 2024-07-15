@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "../styles/Contact.css";
+import BackgroundImg2 from "../assets/images/ContactViewBackground.png";
 import ContentButton from "./ContentButton";
 
 function Contact() {
+
+  const [backgroundImgUrl, setBackgroundImgUrl] = useState('');
+
+  useLayoutEffect(() => {
+    setBackgroundImgUrl("url(" + BackgroundImg2 + ")");
+  }, []);
+
   return (
-    <div className="ContactView">
+    <div className="ContactView" style={{backgroundImage: backgroundImgUrl}}>
       <div className="TransparentPlate">
         <div className="ContactThankYou">
           <div className="Left">

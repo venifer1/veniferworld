@@ -1,7 +1,7 @@
 .MainView {
   width: 1670px;
   height: 953px;
-  background-image: url("../assets/images/MainViewBackground.jpg");
+  /* background-image: url("../assets/images/MainViewBackground.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
