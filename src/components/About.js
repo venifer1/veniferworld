@@ -11,6 +11,12 @@ function About() {
   const { num } = useParams();
   const numId = Number(num);
 
+  const [profileImgUrl, setProfileImgUrl] = useState('');
+
+  useLayoutEffect(() => {
+    setProfileImgUrl(AboutImg);
+  }, []);
+
   let LeaveFirmware = [
     "1. 대다수 펌웨어 개발자를 수요로 하는 직군은 제조업체인데, 거시경제 관점에서 향후 2~30년 간 제조업체의 전망은 개인적으로 좋지 않을 것으로 예상하기 때문입니다.",
     "2. 진입장벽이 높고, 인력이 부족한 펌웨어 개발자에 대한 수요는 상당히 있는 편이나, 제조업체 운영의 핵심인 자재 비용과 최저시급이 상승함에 따라 제조업체는 펌웨어 개발자에 대한 처우를 고려할 여유가 없는 실정입니다.",
@@ -81,7 +87,7 @@ function About() {
           </div>
           <div className="AboutContent">
             <div className="Left">
-              <img src={AboutImg} alt="" />
+              <img src={profileImgUrl} alt="" />
               <p>박민규</p>
             </div>
             <div className="Right">

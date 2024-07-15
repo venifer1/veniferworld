@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "../styles/Projects.css";
 import { useParams } from "react-router-dom";
 import ContentButton from "./ContentButton";
@@ -29,6 +29,85 @@ function Projects() {
   const [fadeOut, setFadeOut] = useState(false);
   const { num } = useParams();
   const numId = Number(num);
+  
+  
+  const ImgPreload = (ImgNum) => {
+    let img = new Image();
+    switch (ImgNum) {
+      case 1:
+        img.src = ImgP1_1;
+        break;
+      case 2:
+        img.src = ImgP1_2;
+        break;
+      case 3:
+        img.src = ImgP1_3;
+        break;
+      case 4:
+        img.src = ImgP1_4;
+        break;
+      case 5:
+        img.src = ImgP1_5;
+        break;
+      case 6:
+        img.src = ImgP1_6;
+        break;
+      case 7:
+        img.src = ImgP1_7;
+        break;
+      case 8:
+        img.src = ImgP1_8;
+        break;
+      case 9:
+        img.src = ImgP1_9;
+        break;
+      case 10:
+        img.src = ImgP2_1;
+        break;
+      case 11:
+        img.src = ImgP2_2;
+        break;
+      case 12:
+        img.src = ImgP2_3;
+        break;
+      case 13:
+        img.src = ImgP2_4;
+        break;
+      case 14:
+        img.src = ImgP2_5;
+        break;
+      case 15:
+        img.src = ImgP2_6;
+        break;
+      case 16:
+        img.src = ImgP2_7;
+        break;
+      case 17:
+        img.src = ImgP2_8;
+        break;
+      case 18:
+        img.src = ImgP2_9;
+        break;
+      case 19:
+        img.src = ImgP2_10;
+        break;
+      case 20:
+        img.src = ImgP2_11;
+        break;
+      case 21:
+        img.src = ImgP2_12;
+        break;  
+      default:
+        break;
+    }
+  }
+
+  useLayoutEffect(() => {
+    for (let i = 1 ; i <= 21 ; i++)
+    {
+      ImgPreload(i);
+    }
+  }, []);
 
   switch (numId) {
     case 1:

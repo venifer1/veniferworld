@@ -24,6 +24,60 @@ function SkillsContent ( { ContentType } ) {
     
     const [contentImgUrl, setContentImgUrl] = useState('');
 
+    const ImgPreload = (ImgNum) => {
+        let img = new Image();
+        switch (ImgNum) {
+            case 1:
+                img.src = SkillsImg1;
+                break;
+            case 2:
+                img.src = SkillsImg2;
+                break;
+            case 3:
+                img.src = SkillsImg3;
+                break;
+            case 4:
+                img.src = SkillsImg4;
+                break;
+            case 5:
+                img.src = SkillsImg5;
+                break;
+            case 6:
+                img.src = SkillsImg6;
+                break;
+            case 7:
+                img.src = SkillsImg7;
+                break;
+            case 8:
+                img.src = SkillsImg8;
+                break;
+            case 9:
+                img.src = SkillsImg9;
+                break;
+            case 10:
+                img.src = SkillsImg10;
+                break;
+            case 11:
+                img.src = SkillsImg11;
+                break;
+            case 12:
+                img.src = SkillsImg12;
+                break;
+            case 13:
+                img.src = SkillsImg13;
+                break;
+            default:
+                break;
+        }
+    }
+
+    useLayoutEffect(() => {
+        for (let i = 1 ; i <= 13 ; i++)
+        {
+          ImgPreload(i);
+        }
+    }, []);
+
     switch (num) {
         case 1:
             ContentImg = SkillsImg1;
