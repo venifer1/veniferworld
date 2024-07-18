@@ -5,16 +5,16 @@ import BackgroundImg from "../assets/images/MainViewBackground.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
-  const [fadeOut, setFadeOut] = useState(false);
-  const navigate = useNavigate();
-  const handleWheelClick = (event) => {
+  const [fadeOut, setFadeOut] = useState<boolean>(false);
+  const navigate:any = useNavigate();
+  const handleWheelClick = (event:any) => {
     setFadeOut(true);
     setTimeout(() => {
       navigate("/Profile");
     }, 1000);
   };
 
-  const [backgroundImgUrl, setBackgroundImgUrl] = useState('');
+  const [backgroundImgUrl, setBackgroundImgUrl] = useState<string>('');
 
   useLayoutEffect(() => {
     setBackgroundImgUrl("url(" + BackgroundImg + ")");
@@ -37,7 +37,7 @@ function Main() {
           </div>
         </div>
         <div className="ScrollButton" onWheel={handleWheelClick}>
-          <Link onClick={handleWheelClick}>
+          <Link to="" onClick={handleWheelClick}>
             <p className="Text1">프 로 필</p>
             <p className="Text2">GO PROFILE</p>
             <img className="Img1" src={ScrollImg} alt="" />

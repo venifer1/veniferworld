@@ -6,9 +6,9 @@ import SkillsContent from "./SkillsContent";
 import NotFound from "./NotFound";
 
 function Skills() {
-  const [fadeOut, setFadeOut] = useState(false);
-  const { num } = useParams();
-  const numId = Number(num);
+  const [fadeOut, setFadeOut] = useState<boolean>(false);
+  const params:any = useParams();
+  const numId:number = Number([params.num]);
 
   switch (numId) {
     case 1:
@@ -29,7 +29,7 @@ function Skills() {
             </div>
           </div>
           <div className="SkillsButton">
-            <ContentButton buttonType={"next"}></ContentButton>
+            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
@@ -48,7 +48,7 @@ function Skills() {
             </div>
           </div>
           <div className="SkillsButton">
-            <ContentButton buttonType={"prev"}></ContentButton>
+            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
             <ContentButton buttonType={"3"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
@@ -57,7 +57,6 @@ function Skills() {
       return (
         <NotFound></NotFound>
       );
-      break;
   }
   
 }

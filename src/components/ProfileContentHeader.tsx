@@ -1,7 +1,11 @@
 import React from "react";
 import "../styles/ProfileContentHeader.css";
 
-function ProfileContentHeader({ headerName }) {
+interface IProfileContentHeaderProps {
+  headerName: string;
+}
+
+function ProfileContentHeader({ headerName }:IProfileContentHeaderProps) {
   return <p className="HeaderCSS">{headerName}</p>;
 }
 

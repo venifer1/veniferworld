@@ -5,20 +5,21 @@ import ContentButton from "./ContentButton";
 
 function Contact() {
 
-  const [backgroundImgUrl, setBackgroundImgUrl] = useState('');
+  const [backgroundImgUrl, setBackgroundImgUrl] = useState<string>('');
+  const [fadeOut, setFadeOut] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     setBackgroundImgUrl("url(" + BackgroundImg2 + ")");
   }, []);
 
   return (
-    <div className="ContactView" style={{backgroundImage: backgroundImgUrl}}>
+    <div id={fadeOut ? "fadeAni" : ""} className="ContactView" style={{backgroundImage: backgroundImgUrl}}>
       <div className="TransparentPlate">
         <div className="ContactThankYou">
           <div className="Left">
             <p className="ThkH">감사합니다.</p>
             <p className="ThkE">Thank you.</p>
-            <ContentButton buttonType={"6"}></ContentButton>
+            <ContentButton buttonType={"6"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
           <div className="Right">
             <p className="Name">박민규</p>

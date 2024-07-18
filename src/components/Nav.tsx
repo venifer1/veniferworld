@@ -1,15 +1,13 @@
 import React from "react";
 import "../styles/Nav.css";
 import NavButton from "./NavButton";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Nav() {
   
-  const { num } = useParams();
-  const numId = Number(num);
-  const location = useLocation();
-  const currentPath = location.pathname;
-  let currentPathBuf;
+  const location:any = useLocation();
+  const currentPath:string = location.pathname;
+  let currentPathBuf:string;
 
   if(currentPath.lastIndexOf('/') !== 0) {
     currentPathBuf = currentPath.substring(1, currentPath.indexOf('/',1));

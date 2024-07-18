@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import "../styles/SkillsContent.css";
 import SkillsImg1 from "../assets/images/S1.png";
 import SkillsImg2 from "../assets/images/S2.png";
@@ -14,18 +14,20 @@ import SkillsImg11 from "../assets/images/S11.png";
 import SkillsImg12 from "../assets/images/S12.png";
 import SkillsImg13 from "../assets/images/S13.png";
 
-function SkillsContent ( { ContentType } ) {
+interface ISkillsContentProps {
+    ContentType: string;
+}
 
-    const num = Number(ContentType);
-    let ContentName;
-    let ContentProject;
-    let ContentDetail;
-    let ContentImg;
-    
-    const [contentImgUrl, setContentImgUrl] = useState('');
+function SkillsContent ( { ContentType }:ISkillsContentProps ) {
 
-    const ImgPreload = (ImgNum) => {
-        let img = new Image();
+    const num:number = Number(ContentType);
+    let ContentName:string = '';
+    let ContentProject:number = 0;
+    let ContentDetail:string = '';
+    let ContentImg:any;
+
+    const ImgPreload = (ImgNum:number) => {
+        let img:any = new Image();
         switch (ImgNum) {
             case 1:
                 img.src = SkillsImg1;
@@ -72,7 +74,7 @@ function SkillsContent ( { ContentType } ) {
     }
 
     useLayoutEffect(() => {
-        for (let i = 1 ; i <= 13 ; i++)
+        for (let i:number = 1 ; i <= 13 ; i++)
         {
           ImgPreload(i);
         }

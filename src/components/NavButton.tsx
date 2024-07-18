@@ -2,10 +2,17 @@ import React from "react";
 import "../styles/NavButton.css";
 import { useNavigate } from "react-router-dom";
 
-function NavButton({ active, textH, textE, routeName }) {
+interface INavButtonProps {
+  active: any;
+  textH: string;
+  textE: string;
+  routeName: string;
+}
 
-  const Addr = "/" + routeName;
-  const navigate = useNavigate();
+function NavButton({ active, textH, textE, routeName }:INavButtonProps) {
+
+  const Addr:string = "/" + routeName;
+  const navigate:any = useNavigate();
 
   const goToAddr = () => {
     navigate(Addr);

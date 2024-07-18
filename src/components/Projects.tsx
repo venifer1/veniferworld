@@ -26,13 +26,13 @@ import ImgP2_11 from "../assets/images/P2_11.png";
 import ImgP2_12 from "../assets/images/P2_12.png";
 
 function Projects() {
-  const [fadeOut, setFadeOut] = useState(false);
-  const { num } = useParams();
-  const numId = Number(num);
+  const [fadeOut, setFadeOut] = useState<boolean>(false);
+  const params:any = useParams();
+  const numId:number = Number(params.num);
   
   
-  const ImgPreload = (ImgNum) => {
-    let img = new Image();
+  const ImgPreload = (ImgNum:number) => {
+    let img:any = new Image();
     switch (ImgNum) {
       case 1:
         img.src = ImgP1_1;
@@ -103,7 +103,7 @@ function Projects() {
   }
 
   useLayoutEffect(() => {
-    for (let i = 1 ; i <= 21 ; i++)
+    for (let i:number = 1 ; i <= 21 ; i++)
     {
       ImgPreload(i);
     }
@@ -165,7 +165,7 @@ function Projects() {
             </div>
           </div>
           <div className="ProjectsButton">
-            <ContentButton buttonType={"next"}></ContentButton>
+            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
@@ -251,8 +251,8 @@ function Projects() {
             </div>
           </div>
           <div className="ProjectsButton">
-            <ContentButton buttonType={"prev"}></ContentButton>
-            <ContentButton buttonType={"4"}></ContentButton>
+            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
+            <ContentButton buttonType={"4"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
@@ -308,8 +308,8 @@ function Projects() {
             </div>
           </div>
           <div className="ProjectsButton">
-            <ContentButton buttonType={"prev"}></ContentButton>
-            <ContentButton buttonType={"next"}></ContentButton>
+            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
+            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
@@ -385,8 +385,8 @@ function Projects() {
             </div>
           </div>
           <div className="ProjectsButton">
-            <ContentButton buttonType={"prev"}></ContentButton>
-            <ContentButton buttonType={"next"}></ContentButton>
+            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
+            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
           </div>
         </div>
       );
@@ -402,7 +402,7 @@ function Projects() {
             </ul>
           </div>
           <div className="ProjectsButton">
-            <ContentButton buttonType={"prev"}></ContentButton>
+            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
             <ContentButton buttonType={"5"} updateSetFadeout={setFadeOut}></ContentButton> 
           </div>
         </div>
@@ -411,7 +411,6 @@ function Projects() {
       return (
         <NotFound></NotFound>
       );
-      break;
   }
 }
 
