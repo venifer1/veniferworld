@@ -1,9 +1,122 @@
 import React, { useLayoutEffect, useState } from "react";
-import "../styles/Profile.css";
 import MyProfileImage from "../assets/images/Me.png";
 import ProfileContentHeader from "./ProfileContentHeader";
 import ContentButton from "./ContentButton";
+import styled, { createGlobalStyle } from "styled-components";
 // import axios from "axios";
+
+const GlobalStyle = createGlobalStyle`
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  #fadeAni {
+    animation: fadeOut 1s forwards;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+const ProfileView = styled.div`
+  width: 1670px;
+  height: 953px;
+  padding: 0px 50px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fcfcfc;
+  border-top: solid 20px #0099ef;
+  animation: fadeIn 1s forwards;
+`;
+const ProfileHeader = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+const ProfileHeaderLeft = styled.p`
+  font-size: 80px;
+  font-weight: 700;
+  color: #000000;
+`;
+const ProfileHeaderRight = styled.p`
+  font-size: 30px;
+  font-weight: 600;
+  color: #888888;
+  margin-left: 22px;
+  margin-bottom: 15px;
+  letter-spacing: 8px;
+`;
+const ProfileContent = styled.div`
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+const Content1 = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0px 20px 0px 20px;
+  border-right: solid 5px #777777;
+  img {
+    margin-bottom: 20px;
+  }
+`;
+const ContentProfileInfo = styled.div`
+  font-size: 25px;
+  line-height: 1.6em;
+`;
+const Content2 = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 0px 20px 0px 20px;
+  border-right: solid 5px #777777;
+`;
+const ContentCommonInfo = styled.div`
+  font-size: ${props => props.id === "little" ? '23px' : '25px'};
+  line-height: 1.6em;
+`;
+const Content3 = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 0px 20px 0px 20px;
+`;
+const ProfileButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 function Profile() {
 
@@ -128,70 +241,73 @@ function Profile() {
   // };
 
   return (
-    <div id={fadeOut ? "fadeAni" : ""} className="ProfileView">
-      <div className="ProfileHeader">
-        <p className="Left">Park Min Gyu</p>
-        <p className="Right">DEVELOPER</p>
-      </div>
-      <div className="ProfileContent">
-        <div className="Content1">
-          <img src={profileImgUrl} alt=""/>
-          <ProfileContentHeader headerName={"PROFILE"}></ProfileContentHeader>
-          <div className="ProfileInfo">
-            {ProfileInfo.map((item, index) => (
-              <p key={index}>{item}</p>
-            ))}
-          </div>
-        </div>
-        <div className="Content2">
-          <div className="Education">
-            <ProfileContentHeader headerName={"EDUCATION"}></ProfileContentHeader>
-            <div className="EducationInfo">
-              {EducationInfo.map((item, index) => (
+    <>
+      <GlobalStyle />
+      <ProfileView id={fadeOut ? "fadeAni" : ""}>
+        <ProfileHeader>
+          <ProfileHeaderLeft>Park Min Gyu</ProfileHeaderLeft>
+          <ProfileHeaderRight>DEVELOPER</ProfileHeaderRight>
+        </ProfileHeader>
+        <ProfileContent>
+          <Content1>
+            <img src={profileImgUrl} alt=""/>
+            <ProfileContentHeader headerName={"PROFILE"}></ProfileContentHeader>
+            <ContentProfileInfo>
+              {ProfileInfo.map((item, index) => (
                 <p key={index}>{item}</p>
               ))}
+            </ContentProfileInfo>
+          </Content1>
+          <Content2>
+            <div className="Education">
+              <ProfileContentHeader headerName={"EDUCATION"}></ProfileContentHeader>
+              <ContentCommonInfo>
+                {EducationInfo.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </ContentCommonInfo>
             </div>
-          </div>
-          <div className="Experience">
-            <ProfileContentHeader headerName={"EXPERIENCE"}></ProfileContentHeader>
-            <div className="ExperienceInfo">
-              {ExperienceInfo.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+            <div className="Experience">
+              <ProfileContentHeader headerName={"EXPERIENCE"}></ProfileContentHeader>
+              <ContentCommonInfo>
+                {ExperienceInfo.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </ContentCommonInfo>
             </div>
-          </div>
-          <div className="License">
-            <ProfileContentHeader headerName={"LICENSE"}></ProfileContentHeader>
-            <div className="LicenseInfo">
-              {LicenseInfo.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+            <div className="License">
+              <ProfileContentHeader headerName={"LICENSE"}></ProfileContentHeader>
+              <ContentCommonInfo>
+                {LicenseInfo.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </ContentCommonInfo>
             </div>
-          </div>
-        </div>
-        <div className="Content3">
-          <div className="Skills">
-            <ProfileContentHeader headerName={"SKILLS"}></ProfileContentHeader>
-            <div className="SkillsInfo">
-              {SkillsInfo.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+          </Content2>
+          <Content3 className="Content3">
+            <div className="Skills">
+              <ProfileContentHeader headerName={"SKILLS"}></ProfileContentHeader>
+              <ContentCommonInfo>
+                {SkillsInfo.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </ContentCommonInfo>
             </div>
-          </div>
-          <div className="AwardInterview">
-            <ProfileContentHeader headerName={"AWARD&INTERVIEW"}></ProfileContentHeader>
-            <div className="AwardInterviewInfo">
-              {AwardInterviewInfo.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+            <div className="AwardInterview">
+              <ProfileContentHeader headerName={"AWARD&INTERVIEW"}></ProfileContentHeader>
+              <ContentCommonInfo id="little">
+                {AwardInterviewInfo.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </ContentCommonInfo>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="ProfileButton">
-        <ContentButton buttonType={"1"} updateSetFadeout={setFadeOut}></ContentButton>
-      </div>
-    </div>
+          </Content3>
+        </ProfileContent>
+        <ProfileButton>
+          <ContentButton buttonType={"1"} updateSetFadeout={setFadeOut}></ContentButton>
+        </ProfileButton>
+      </ProfileView>
+    </>
   );
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/App.css";
-import "../styles/Main.css";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import Main from "../components/Main";
