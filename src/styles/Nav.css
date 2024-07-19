@@ -1,9 +1,0 @@
-.NavView {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 250px;
-  height: 827px;
-  background-color: #303030;
-}

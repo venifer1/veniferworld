@@ -10,10 +10,25 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import NotFound from "../components/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from "styled-components";
+
+const AppView = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .Left,
+  .Right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 function App() {
   return (
-    <div className="AppView">
+    <AppView>
       <BrowserRouter>
         <div className="Left">
           <Logo></Logo>
@@ -28,11 +43,11 @@ function App() {
             <Route path="/Projects/:num" element={<Projects />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
             <Route path="/*" element={<NotFound />}></Route>
-            <Route path="/NotFound" element={<NotFound/>}></Route>
+            <Route path="/NotFound" element={<NotFound />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
-    </div>
+    </AppView>
   );
 }
 

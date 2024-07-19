@@ -38,7 +38,7 @@ const ProfileView = styled.div`
   border-top: solid 20px #0099ef;
   animation: fadeIn 1s forwards;
 `;
-const ProfileHeader = styled.div`
+const Header = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -46,12 +46,12 @@ const ProfileHeader = styled.div`
   align-items: flex-end;
   font-family: "Noto Sans KR", sans-serif;
 `;
-const ProfileHeaderLeft = styled.p`
+const HeaderLeft = styled.p`
   font-size: 80px;
   font-weight: 700;
   color: #000000;
 `;
-const ProfileHeaderRight = styled.p`
+const HeaderRight = styled.p`
   font-size: 30px;
   font-weight: 600;
   color: #888888;
@@ -111,7 +111,7 @@ const Content3 = styled.div`
   align-items: stretch;
   padding: 0px 20px 0px 20px;
 `;
-const ProfileButton = styled.div`
+const Button = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,10 +244,10 @@ function Profile() {
     <>
       <GlobalStyle />
       <ProfileView id={fadeOut ? "fadeAni" : ""}>
-        <ProfileHeader>
-          <ProfileHeaderLeft>Park Min Gyu</ProfileHeaderLeft>
-          <ProfileHeaderRight>DEVELOPER</ProfileHeaderRight>
-        </ProfileHeader>
+        <Header>
+          <HeaderLeft>Park Min Gyu</HeaderLeft>
+          <HeaderRight>DEVELOPER</HeaderRight>
+        </Header>
         <ProfileContent>
           <Content1>
             <img src={profileImgUrl} alt=""/>
@@ -303,9 +303,9 @@ function Profile() {
             </div>
           </Content3>
         </ProfileContent>
-        <ProfileButton>
+        <Button>
           <ContentButton buttonType={"1"} updateSetFadeout={setFadeOut}></ContentButton>
-        </ProfileButton>
+        </Button>
       </ProfileView>
     </>
   );

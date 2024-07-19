@@ -1,5 +1,42 @@
-import "../styles/ContentButton.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  #onlyContact:hover {
+    border: solid 5px #ffffff;
+    p {
+      color: #ffffff;
+    }
+  }
+`;
+const Button = styled.button`
+  width: 427px;
+  height: 100px;
+  font-family: 'Noto sans KR', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: solid 0px;
+  cursor: pointer;
+  letter-spacing: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 5px #141840;
+    p {
+      color: #141840;
+    }
+    transition: all 0.4s ease-in-out;
+  }
+  background-color: ${props => props.className === "jump" ? '#141840;' : '#303030;'}
+`;
+const ButtonP = styled.p`
+  ${props => props.className === 'Top' ? 'font-size: 30px; color: #ffffff;' : 'font-size: 20px; color: #aaaaaa;'}
+  font-weight: 600;
+`;
 
 interface IContentButtonProps {
   buttonType: string;
@@ -78,59 +115,62 @@ function ContentButton({ buttonType, updateSetFadeout }:IContentButtonProps) {
   switch (buttonType) {
     case "prev":
       return (
-        <button onClick={goButtonTypePrev} className="contentBtn prev">
-          <p className="Top">이전</p>
-          <p className="Bottom">PREV</p>
-        </button>
+        <Button onClick={goButtonTypePrev}>
+          <ButtonP className="Top">이전</ButtonP>
+          <ButtonP>PREV</ButtonP>
+        </Button>
       );
     case "next":
       return (
-        <button onClick={goButtonTypeNext} className='contentBtn next'>
-          <p className='Top'>다음</p>
-          <p className='Bottom'>NEXT</p>
-        </button>
+        <Button onClick={goButtonTypeNext}>
+          <ButtonP className='Top'>다음</ButtonP>
+          <ButtonP>NEXT</ButtonP>
+        </Button>
       );
     case "1":
       return (
-        <button onClick={goButtonType1} className='contentBtn jump'>
-          <p className='Top'>소개</p>
-          <p className='Bottom'>GO ABOUT ME</p>
-        </button>
+        <Button onClick={goButtonType1} className='jump'>
+          <ButtonP className='Top'>소개</ButtonP>
+          <ButtonP>GO ABOUT ME</ButtonP>
+        </Button>
       );
     case "2":
       return (
-        <button onClick={goButtonType2} className='contentBtn jump'>
-          <p className='Top'>기술</p>
-          <p className='Bottom'>GO SKILLS</p>
-        </button>
+        <Button onClick={goButtonType2} className='jump'>
+          <ButtonP className='Top'>기술</ButtonP>
+          <ButtonP>GO SKILLS</ButtonP>
+        </Button>
       );
     case "3":
       return (
-        <button onClick={goButtonType3} className='contentBtn jump'>
-          <p className='Top'>프로젝트</p>
-          <p className='Bottom'>GO PROJECTS</p>
-        </button>
+        <Button onClick={goButtonType3} className='jump'>
+          <ButtonP className='Top'>프로젝트</ButtonP>
+          <ButtonP>GO PROJECTS</ButtonP>
+        </Button>
       );
     case "4":
       return (
-        <button onClick={goButtonType4} className='contentBtn jump'>
-          <p className='Top'>주요 프로젝트 2</p>
-          <p className='Bottom'>GO PROJECTS 2</p>
-        </button>
+        <Button onClick={goButtonType4} className='jump'>
+          <ButtonP className='Top'>주요 프로젝트 2</ButtonP>
+          <ButtonP>GO PROJECTS 2</ButtonP>
+        </Button>
       );
     case "5":
       return (
-        <button onClick={goButtonType5} className='contentBtn jump'>
-          <p className='Top'>연락처</p>
-          <p className='Bottom'>GO CONTACT</p>
-        </button>
+        <Button onClick={goButtonType5} className='jump'>
+          <ButtonP className='Top'>연락처</ButtonP>
+          <ButtonP>GO CONTACT</ButtonP>
+        </Button>
       );
     case "6":
       return (
-        <button onClick={goButtonType6} id="onlyContact" className='contentBtn jump'>
-          <p className='Top'>메인으로</p>
-          <p className='Bottom'>GO MAIN</p>
-        </button>
+        <>
+          <GlobalStyle />
+          <Button onClick={goButtonType6} id="onlyContact" className='jump'>
+            <ButtonP className='Top'>메인으로</ButtonP>
+            <ButtonP>GO MAIN</ButtonP>
+          </Button>
+        </>
       );
     default:
   }

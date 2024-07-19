@@ -1,10 +1,155 @@
 import React, { useLayoutEffect, useState } from "react";
-import "../styles/About.css";
 import AboutImg from "../assets/images/Me.png";
 import ContentButton from "./ContentButton";
 import { useParams } from "react-router-dom";
 import NotFound from "./NotFound";
+import styled, { createGlobalStyle } from "styled-components";
 // import axios from "axios";
+
+const GlobalStyle = createGlobalStyle`
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  #fadeAni {
+    animation: fadeOut 1s forwards;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+const AboutView = styled.div`
+  width: 1670px;
+  height: 953px;
+  padding: 0px 50px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fcfcfc;
+  border-top: solid 20px #0099ef;
+  animation: fadeIn 1s forwards;
+`;
+const Header = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+const HeaderLeft = styled.p`
+  font-size: 80px;
+  font-weight: 700;
+  color: #000000;
+`;
+const HeaderRight = styled.p`
+  font-size: 30px;
+  font-weight: 600;
+  color: #888888;
+  margin-left: 22px;
+  margin-bottom: 15px;
+  letter-spacing: 8px;
+`;
+const Content1 = styled.div`
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+`;
+const Content1Left = styled.div`
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 10px;
+  }
+  img {
+    width: 350px;
+    height: 467px;
+    margin-bottom: 20px;
+  }
+`;
+const Content1Right = styled.div`
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+const ContentTitle = styled.p`
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+`;
+const ContentDetail = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 40px;
+  margin-bottom: 40px;
+`;
+const Content2 = styled.div`
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const Content2Top = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  div {
+    padding: 20px;
+  }
+  p {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+`;
+const Content2TopContent = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 40px;
+  text-indent: -20px;
+  margin-left: 20px;
+`;
+const Content2Bottom = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+  div {
+    flex: 0.5;
+    padding: 20px;
+  }
+`;
+const Button = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 
 function About() {
   
@@ -82,105 +227,111 @@ function About() {
   switch (numId) {
     case 1:
       return (
-        <div id={fadeOut ? "fadeAni" : ""} className="AboutView">
-          <div className="ProfileHeader">
-            <p className="Left">Park Min Gyu</p>
-            <p className="Right">DEVELOPER</p>
-          </div>
-          <div className="AboutContent">
-            <div className="Left">
-              <img src={profileImgUrl} alt="" />
-              <p>박민규</p>
-            </div>
-            <div className="Right">
-              <div>
-                <p className="Title">▶ 임베디드 MCU 펌웨어 개발 5년 차 경험</p>
-                <p className="Content">
-                  임베디드 MCU 펌웨어 개발 5년 차 경력이 있습니다. 로우레벨인
-                  C언어를 통해 하드웨어를 직접 제어하여 제품의 동작원리 파악에
-                  능하고 프로그래밍의 기본기가 탄탄합니다. 오실로스코프, 멀
-                  티미터, 절연저항기, 내전압기 등 계측장비 사용이 가능하여
-                  제품개발을 효율적으로 진행할 수 있 습니다. 까다로운 철도규격의
-                  인증시험과 다수의 KC 인증 및 전자파 시험 통과 경험이 있어 제품
-                  인증시험 대응이 가능합니다.
-                </p>
-              </div>
-              <div>
-                <p className="Title">▶ 폭넓은 개발 스펙트럼</p>
-                <p className="Content">
-                  다수의 IoT 프로젝트 경험을 통해 C, C#-WPF, HTML, CSS,
-                  JavaScript, PHP, HMI, Database, AWS EC2 등의 개발이 가능할
-                  뿐만 아니라 최적의 프로토콜을 정의하여 원활한 통신이 가능합니
-                  다. 로우레벨부터 하이레벨 언어 개발을 모두 경험했기에 협업에
-                  강점이 있고 개발에 대한 이해도 가 높습니다.
-                </p>
-              </div>
-              <div>
-                <p className="Title">▶ 연구소 개발팀장 경험</p>
-                <p className="Content">
-                  능력을 인정받아 4년 차에 연구소 개발팀장 직책을 맡게 되어
-                  팀원과의 소통과 협업, 프로젝트 기 획과 운영, 문제 해결 및 변수
-                  대응을 경험하여 팀원들과의 협업에 능하고 프로젝트의 효율적인
-                  진 행을 도울 수 있습니다.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="AboutButton">
-            <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
-          </div>
-        </div>
+        <>
+          <GlobalStyle />
+          <AboutView id={fadeOut ? "fadeAni" : ""}>
+            <Header>
+              <HeaderLeft>Park Min Gyu</HeaderLeft>
+              <HeaderRight>DEVELOPER</HeaderRight>
+            </Header>
+            <Content1>
+              <Content1Left>
+                <img src={profileImgUrl} alt="" />
+                <p>박민규</p>
+              </Content1Left>
+              <Content1Right>
+                <div>
+                  <ContentTitle>▶ 임베디드 MCU 펌웨어 개발 5년 차 경험</ContentTitle>
+                  <ContentDetail>
+                    임베디드 MCU 펌웨어 개발 5년 차 경력이 있습니다. 로우레벨인
+                    C언어를 통해 하드웨어를 직접 제어하여 제품의 동작원리 파악에
+                    능하고 프로그래밍의 기본기가 탄탄합니다. 오실로스코프, 멀
+                    티미터, 절연저항기, 내전압기 등 계측장비 사용이 가능하여
+                    제품개발을 효율적으로 진행할 수 있 습니다. 까다로운 철도규격의
+                    인증시험과 다수의 KC 인증 및 전자파 시험 통과 경험이 있어 제품
+                    인증시험 대응이 가능합니다.
+                  </ContentDetail>
+                </div>
+                <div>
+                  <ContentTitle>▶ 폭넓은 개발 스펙트럼</ContentTitle>
+                  <ContentDetail>
+                    다수의 IoT 프로젝트 경험을 통해 C, C#-WPF, HTML, CSS,
+                    JavaScript, PHP, HMI, Database, AWS EC2 등의 개발이 가능할
+                    뿐만 아니라 최적의 프로토콜을 정의하여 원활한 통신이 가능합니
+                    다. 로우레벨부터 하이레벨 언어 개발을 모두 경험했기에 협업에
+                    강점이 있고 개발에 대한 이해도 가 높습니다.
+                  </ContentDetail>
+                </div>
+                <div>
+                  <ContentTitle>▶ 연구소 개발팀장 경험</ContentTitle>
+                  <ContentDetail>
+                    능력을 인정받아 4년 차에 연구소 개발팀장 직책을 맡게 되어
+                    팀원과의 소통과 협업, 프로젝트 기 획과 운영, 문제 해결 및 변수
+                    대응을 경험하여 팀원들과의 협업에 능하고 프로젝트의 효율적인
+                    진 행을 도울 수 있습니다.
+                  </ContentDetail>
+                </div>
+              </Content1Right>
+            </Content1>
+            <Button>
+              <ContentButton buttonType={"next"} updateSetFadeout={setFadeOut}></ContentButton>
+            </Button>
+          </AboutView>
+        </>
       );
     case 2:
       return (
-        <div id={fadeOut ? "fadeAni" : ""} className="AboutView">
-          <div className="ProfileHeader">
-            <p className="Left">Park Min Gyu</p>
-            <p className="Right">DEVELOPER</p>
-          </div>
-          <div className="AboutContent2">
-            <div className="Top">
-              <div>
-                <p className="Title">▶ 왜 펌웨어를 떠나는가?</p>
-                <p className="Content">
-                  {LeaveFirmware.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </p>
-              </div>
-              <div>
-                <p className="Title">▶ 왜 웹 개발자가 되고싶은가?</p>
-                <p className="Content">
-                  {BecomeWebDev.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </p>
-              </div>
-            </div>
-            <div className="Bottom">
-              <div>
-                <p className="Title">▶ 성격의 장단점</p>
-                <p className="Content">
-                  저의 성격은 논리적이고 계획적이며 섬세하고 아주 작은 변화도
-                  캐치할 수 있을 만큼 꼼꼼하지만, 그만큼 생각이 많은 편이며
-                  상대적으로 스트레스를 많이 받는 편입니다.
-                </p>
-              </div>
-              <div>
-                <p className="Title">▶ 직업관</p>
-                <p className="Content">
-                  {Motto.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="AboutButton">
-            <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
-            <ContentButton buttonType={"2"} updateSetFadeout={setFadeOut}></ContentButton>
-          </div>
-        </div>
+        <>
+          <GlobalStyle />
+          <AboutView id={fadeOut ? "fadeAni" : ""}>
+            <Header>
+              <HeaderLeft>Park Min Gyu</HeaderLeft>
+              <HeaderRight>DEVELOPER</HeaderRight>
+            </Header>
+            <Content2>
+              <Content2Top>
+                <div>
+                  <ContentTitle>▶ 왜 펌웨어를 떠나는가?</ContentTitle>
+                  <Content2TopContent>
+                    {LeaveFirmware.map((item, index) => (
+                      <p key={index}>{item}</p>
+                    ))}
+                  </Content2TopContent>
+                </div>
+                <div>
+                  <ContentTitle>▶ 왜 웹 개발자가 되고싶은가?</ContentTitle>
+                  <Content2TopContent>
+                    {BecomeWebDev.map((item, index) => (
+                      <p key={index}>{item}</p>
+                    ))}
+                  </Content2TopContent>
+                </div>
+              </Content2Top>
+              <Content2Bottom>
+                <div>
+                  <ContentTitle>▶ 성격의 장단점</ContentTitle>
+                  <ContentDetail>
+                    저의 성격은 논리적이고 계획적이며 섬세하고 아주 작은 변화도
+                    캐치할 수 있을 만큼 꼼꼼하지만, 그만큼 생각이 많은 편이며
+                    상대적으로 스트레스를 많이 받는 편입니다.
+                  </ContentDetail>
+                </div>
+                <div>
+                  <ContentTitle>▶ 직업관</ContentTitle>
+                  <ContentDetail>
+                    {Motto.map((item, index) => (
+                      <p key={index}>{item}</p>
+                    ))}
+                  </ContentDetail>
+                </div>
+              </Content2Bottom>
+            </Content2>
+            <Button>
+              <ContentButton buttonType={"prev"} updateSetFadeout={setFadeOut}></ContentButton>
+              <ContentButton buttonType={"2"} updateSetFadeout={setFadeOut}></ContentButton>
+            </Button>
+          </AboutView>
+        </>
       );
     default:
       return (

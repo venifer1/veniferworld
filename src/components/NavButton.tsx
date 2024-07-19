@@ -2,6 +2,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 
+const GlobalStyle = createGlobalStyle`
+  #active {
+    background-color: #222222;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    p {
+      color: #f0e68c;
+      transition: all 0.2s linear;
+    }
+  }
+`;
 const Button = styled.button`
   display: flex;
   flex-direction: row;
@@ -15,7 +26,6 @@ const Button = styled.button`
   font-weight: 600;
   border: none;
   text-decoration: none;
-
   &:hover {
     background-color: #222222;
     cursor: pointer;
@@ -26,30 +36,17 @@ const Button = styled.button`
     transition: all 0.2s linear;
   }
 `;
-
 const LeftContent = styled.p`
   color: #ffffff;
   font-size: 25px;
   margin-left: 25px;
 `;
-
 const RightContent = styled.p`
   color: #aaaaaa;
   font-size: 17px;
   margin-left: 5px;
 `;
 
-const GlobalStyle = createGlobalStyle`
-  #active {
-  background-color: #222222;
-  cursor: pointer;
-  transition: all 0.2s linear;
-  p {
-    color: #f0e68c;
-    transition: all 0.2s linear;
-  }
-}
-`;
 
 interface INavButtonProps {
   active: any;

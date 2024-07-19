@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/Nav.css";
 import NavButton from "./NavButton";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";

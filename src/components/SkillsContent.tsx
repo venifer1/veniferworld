@@ -1,5 +1,4 @@
 import React, { useLayoutEffect } from "react";
-import "../styles/SkillsContent.css";
 import SkillsImg1 from "../assets/images/S1.png";
 import SkillsImg2 from "../assets/images/S2.png";
 import SkillsImg3 from "../assets/images/S3.png";
@@ -13,6 +12,51 @@ import SkillsImg10 from "../assets/images/S10.png";
 import SkillsImg11 from "../assets/images/S11.png";
 import SkillsImg12 from "../assets/images/S12.png";
 import SkillsImg13 from "../assets/images/S13.png";
+import styled from "styled-components";
+
+const Li = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+`;
+const LiLeft = styled.div`
+    width: 170px;
+    height: 170px;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 128px;
+        height: 128px;
+    }
+    img:hover {
+        transform: scale(1.1);
+        transition: all 0.35s linear;
+    }
+`;
+const LiRight = styled.div`
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+`;
+const LiRightTitle = styled.p`
+    font-size: 30px;
+    font-weight: 700;
+`;
+const LiRightContent = styled.p`
+    font-size: 20px;
+    font-weight: 500;
+    ${props => props.id === "special" ? 'text-indent: -22px; margin-left: 22px;' : ''}
+`;
 
 interface ISkillsContentProps {
     ContentType: string;
@@ -176,28 +220,28 @@ function SkillsContent ( { ContentType }:ISkillsContentProps ) {
         case 11:
         case 13:
             return (
-                <div className="SkillsLi">
-                    <div className="InfoLeft">
+                <Li>
+                    <LiLeft>
                         <img src={ContentImg} alt=""/>
-                    </div>
-                    <div className="InfoRight">
-                        <p className="Title">{ContentName}</p>
-                        <p className="Content1">1. 구현 프로젝트 : {ContentProject}개</p>
-                        <p className="Content2">2. {ContentDetail}</p>
-                    </div>
-                </div>
+                    </LiLeft>
+                    <LiRight>
+                        <LiRightTitle>{ContentName}</LiRightTitle>
+                        <LiRightContent>1. 구현 프로젝트 : {ContentProject}개</LiRightContent>
+                        <LiRightContent id="special">2. {ContentDetail}</LiRightContent>
+                    </LiRight>
+                </Li>
             );
         case 12:
             return (
-                <div className="SkillsLi">
-                    <div className="InfoLeft">
+                <Li>
+                    <LiLeft>
                         <img src={ContentImg} alt=""/>
-                    </div>
-                    <div className="InfoRight">
-                        <p className="Title">{ContentName}</p>
-                        <p className="Content2">1. {ContentDetail}</p>
-                    </div>
-                </div>
+                    </LiLeft>
+                    <LiRight>
+                        <LiRightTitle>{ContentName}</LiRightTitle>
+                        <LiRightContent>1. {ContentDetail}</LiRightContent>
+                    </LiRight>
+                </Li>
             );
         default:
     }
