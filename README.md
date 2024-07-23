@@ -6,7 +6,6 @@ Figma : https://www.figma.com/design/yO9VgqGlWxFMTL998A1Y1z/React-%EA%B8%B0%EB%B
 *** 추가 및 보완해야 할 사항 ***
 ***
 
-- Edge, Whale 브라우저에서 페이지 일부가 잘리는 현상
 - 반응형 웹 페이지
 - react-query를 통한 상태관리 적용해보기
 - EC2 HTTPS 추가
@@ -15,6 +14,7 @@ Figma : https://www.figma.com/design/yO9VgqGlWxFMTL998A1Y1z/React-%EA%B8%B0%EB%B
 - 무한스크롤
 - Form 만들어보기
 
+- (완료) Edge, Whale 브라우저에서 페이지 일부가 잘리는 현상 (2024-07-19)
 - (완료) styled-components 적용 (2024-07-19)
 - (완료) JavaScript -> TypeScript로 변경 (2024-07-18)
 - (완료) 화면 전환 시 이미지 로드가 간혹 늦는 현상 (2024-07-15)
