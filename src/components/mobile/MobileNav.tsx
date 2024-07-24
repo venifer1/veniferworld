@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import NavButton from "./MobileNavButton";
 import MobileLogo from "./MobileLogo";
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Menu from "../../assets/images/Menu.png";
 import Close from "../../assets/images/Close.png";
 
+const GlobalStyle = createGlobalStyle`
+  #NavOpen {
+    display: flex;
+    div {
+      position: relative;
+      animation: open 0.5s forwards;
+    }
+  }
+  @keyframes open {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 0%;
+    }
+  }
+
+  #NavClose {
+    display: none;
+  }
+`;
 const NavView = styled.div`
   display: flex;
   flex-direction: row;
@@ -40,9 +61,12 @@ const RightMenu = styled.div`
   height: 25px;
 `;
 const NavButtonView = styled.div`
+    position: absolute;
+    z-index: 999;
     width: 100vw;
-    height: 100vh;
-    display: flex;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    display: none;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
@@ -80,11 +104,21 @@ function MobileNav() {
     currentPathBuf = currentPath.substring(1, currentPath.length);
   }
 
-  const handleOpenClick = (event: any) => {};
-  const handleCloseClick = (event: any) => {};
+  const [navOpen, setNavOpen] = useState<boolean>(false);
+  const handleOpenClick = (event: any) => {
+    if(navOpen) {
+      setNavOpen(false);
+    } else {
+      setNavOpen(true);
+    }
+  };
+  const handleCloseClick = (event: any) => {
+    setNavOpen(false);
+  };
 
   return (
     <>
+      <GlobalStyle></GlobalStyle>
       <NavView>
         <LeftMenu onClick={handleOpenClick}>
           <img src={Menu} alt="" />
@@ -96,13 +130,14 @@ function MobileNav() {
         </CenterLink>
         <RightMenu></RightMenu>
       </NavView>
-      <NavButtonView>
+      <NavButtonView id={navOpen ? "NavOpen" : "NavClose"}>
         <NavButtonBox>
-            <NavButton active={currentPathBuf === "Profile" ? true : false} textH={"프로필"} textE={"PROFILE"} routeName={"Profile"}></NavButton>
-            <NavButton active={currentPathBuf === "About" ? true : false} textH={"소개"} textE={"ABOUT ME"} routeName={"About/1"}></NavButton>
-            <NavButton active={currentPathBuf === "Skills" ? true : false} textH={"기술"} textE={"SKILLS"} routeName={"Skills/1"}></NavButton>
-            <NavButton active={currentPathBuf === "Projects" ? true : false} textH={"프로젝트"} textE={"PROJECTS"} routeName={"Projects/1"}></NavButton>
-            <NavButton active={currentPathBuf === "Contact" ? true : false} textH={"연락처"} textE={"CONTACT"} routeName={"Contact"}></NavButton>
+            <MobileLogo></MobileLogo>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Profile" ? true : false} textH={"프로필"} textE={"PROFILE"} routeName={"Profile"}></NavButton>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "About" ? true : false} textH={"소개"} textE={"ABOUT ME"} routeName={"About"}></NavButton>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Skills" ? true : false} textH={"기술"} textE={"SKILLS"} routeName={"Skills"}></NavButton>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Projects" ? true : false} textH={"프로젝트"} textE={"PROJECTS"} routeName={"Projects"}></NavButton>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Contact" ? true : false} textH={"연락처"} textE={"CONTACT"} routeName={"Contact"}></NavButton>
         </NavButtonBox>
         <NavCloseBox onClick={handleCloseClick}>
             <img src={Close} alt="" />

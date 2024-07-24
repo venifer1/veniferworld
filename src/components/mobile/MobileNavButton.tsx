@@ -49,17 +49,19 @@ const RightContent = styled.p`
 
 
 interface INavButtonProps {
+  updateSetNavOpen: any;
   active: any;
   textH: string;
   textE: string;
   routeName: string;
 }
 
-function MobileNavButton({ active, textH, textE, routeName }: INavButtonProps) {
+function MobileNavButton({ updateSetNavOpen, active, textH, textE, routeName }: INavButtonProps) {
   const Addr: string = "/" + routeName;
   const navigate: any = useNavigate();
 
   const goToAddr = () => {
+    updateSetNavOpen(false);
     navigate(Addr);
   };
 

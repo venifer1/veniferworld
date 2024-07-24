@@ -284,7 +284,7 @@ function Profile() {
               </ContentCommonInfo>
             </div>
           </Content2>
-          <Content3 className="Content3">
+          <Content3>
             <div className="Skills">
               <ProfileContentHeader headerName={"SKILLS"}></ProfileContentHeader>
               <ContentCommonInfo>

@@ -13,6 +13,11 @@ import styled from "styled-components";
 import { Desktop, Mobile } from "../components/MediaQuery";
 import MobileNav from "../components/mobile/MobileNav";
 import { Fragment } from "react/jsx-runtime";
+import ScrollToTop from "../components/ScrollToTop";
+import MobileMain from "../components/mobile/MobileMain";
+import MobileProfile from "../components/mobile/MobileProfile";
+import MobileAbout from "../components/mobile/MobileAbout";
+import MobileSkills from "../components/mobile/MobileSkills";
 
 const AppView = styled.div`
   width: 100vw;
@@ -47,6 +52,7 @@ const MobileAppView = styled.div`
 export default function App(): JSX.Element {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Desktop>
         <>
           <AppView>
@@ -77,10 +83,10 @@ export default function App(): JSX.Element {
             </div>
             <div className="MobileBottom">
               <Routes>
-                <Route path="/"></Route>
-                <Route path="/Profile"></Route>
-                <Route path="/About"></Route>
-                <Route path="/Skills"></Route>
+                <Route path="/" element={<MobileMain/>}></Route>
+                <Route path="/Profile" element={<MobileProfile/>}></Route>
+                <Route path="/About" element={<MobileAbout/>}></Route>
+                <Route path="/Skills" element={<MobileSkills/>}></Route>
                 <Route path="/Projects"></Route>
                 <Route path="/Contact"></Route>
                 <Route path="/*"></Route>
