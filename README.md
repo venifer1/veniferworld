@@ -14,7 +14,7 @@ Figma : https://www.figma.com/design/yO9VgqGlWxFMTL998A1Y1z/React-%EA%B8%B0%EB%B
 - 무한스크롤
 - Form 만들어보기
 
-- (완료) 반응형 웹 페이지 - 모바일
+- (완료) 반응형 웹 페이지 - 모바일 (2024-07-25)
 - (완료) Edge, Whale 브라우저에서 페이지 일부가 잘리는 현상 (2024-07-19)
 - (완료) styled-components 적용 (2024-07-19)
 - (완료) JavaScript -> TypeScript로 변경 (2024-07-18)
