@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavButton from "./MobileNavButton";
 import MobileLogo from "./MobileLogo";
 import { useLocation } from "react-router-dom";
@@ -28,9 +28,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const NavView = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 999;
   display: flex;
   flex-direction: row;
-  justify-content: evenly-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100vw;
   height: 60px;
@@ -61,7 +64,8 @@ const RightMenu = styled.div`
   height: 25px;
 `;
 const NavButtonView = styled.div`
-    position: absolute;
+    position: fixed;
+    top: 60px;
     z-index: 999;
     width: 100vw;
     height: calc(100vh - 60px);
@@ -108,13 +112,17 @@ function MobileNav() {
   const handleOpenClick = (event: any) => {
     if(navOpen) {
       setNavOpen(false);
+      document.body.style.overflow = 'scroll';
     } else {
       setNavOpen(true);
+      document.body.style.overflow = 'hidden';
     }
   };
   const handleCloseClick = (event: any) => {
     setNavOpen(false);
+    document.body.style.overflow = 'scroll';
   };
+  
 
   return (
     <>
@@ -136,7 +144,7 @@ function MobileNav() {
             <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Profile" ? true : false} textH={"프로필"} textE={"PROFILE"} routeName={"Profile"}></NavButton>
             <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "About" ? true : false} textH={"소개"} textE={"ABOUT ME"} routeName={"About"}></NavButton>
             <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Skills" ? true : false} textH={"기술"} textE={"SKILLS"} routeName={"Skills"}></NavButton>
-            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Projects" ? true : false} textH={"프로젝트"} textE={"PROJECTS"} routeName={"Projects"}></NavButton>
+            <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Projects" ? true : false} textH={"프로젝트"} textE={"PROJECTS"} routeName={"Projects/1"}></NavButton>
             <NavButton updateSetNavOpen={setNavOpen} active={currentPathBuf === "Contact" ? true : false} textH={"연락처"} textE={"CONTACT"} routeName={"Contact"}></NavButton>
         </NavButtonBox>
         <NavCloseBox onClick={handleCloseClick}>

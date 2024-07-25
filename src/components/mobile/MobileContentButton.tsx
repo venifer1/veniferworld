@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -20,8 +20,7 @@ const Button = styled.button`
   border-radius: 10px;
   border: solid 0px;
   cursor: pointer;
-  letter-spacing: 2px;
-  margin: 20px 20px 60px 20px;
+  margin: 20px 10px 60px 10px;
   &:hover {
     background-color: rgba(0, 0, 0, 0);
     border: solid 5px #141840;
@@ -45,6 +44,23 @@ interface IContentButtonProps {
 function MobileContentButton({ buttonType, updateSetFadeout }:IContentButtonProps) {
 
   const navigate = useNavigate();
+
+  const params:any = useParams();
+  const numId:number = Number(params.num);
+  const location:any = useLocation();
+  const currentPath:string = location.pathname;
+  const currentPathBuf:string = currentPath.substring(0, currentPath.lastIndexOf('/'));
+
+  const goButtonTypePrev = () => {
+    updateSetFadeout(false);
+    switch(numId) {
+      case 2:
+        navigate(currentPathBuf + '/' + Number(numId-1));
+        break;
+      default:
+        break;
+    }
+  }
 
   const goButtonType1 = () => {
     updateSetFadeout(true);
@@ -80,6 +96,13 @@ function MobileContentButton({ buttonType, updateSetFadeout }:IContentButtonProp
   }
 
   switch (buttonType) {
+    case "prev":
+      return (
+        <Button onClick={goButtonTypePrev}>
+          <ButtonP className="Top">이전</ButtonP>
+          <ButtonP>PREV</ButtonP>
+        </Button>
+      );
     case "1":
       return (
         <Button onClick={goButtonType1} className='jump'>

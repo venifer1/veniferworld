@@ -18,6 +18,8 @@ import MobileMain from "../components/mobile/MobileMain";
 import MobileProfile from "../components/mobile/MobileProfile";
 import MobileAbout from "../components/mobile/MobileAbout";
 import MobileSkills from "../components/mobile/MobileSkills";
+import MobileProjects from "../components/mobile/MobileProjects";
+import MobileContact from "../components/mobile/MobileContact";
 
 const AppView = styled.div`
   width: 100vw;
@@ -41,11 +43,20 @@ const MobileAppView = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  .MobileTop {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .MobileBottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
   }
 `;
 
@@ -87,8 +98,8 @@ export default function App(): JSX.Element {
                 <Route path="/Profile" element={<MobileProfile/>}></Route>
                 <Route path="/About" element={<MobileAbout/>}></Route>
                 <Route path="/Skills" element={<MobileSkills/>}></Route>
-                <Route path="/Projects"></Route>
-                <Route path="/Contact"></Route>
+                <Route path="/Projects/:num" element={<MobileProjects/>}></Route>
+                <Route path="/Contact" element={<MobileContact/>}></Route>
                 <Route path="/*"></Route>
                 <Route path="/NotFound"></Route>
               </Routes>

@@ -77,7 +77,7 @@ const Content = styled.div`
   align-items: stretch;
   margin-top: 20px;
   img {
-    width: 262px
+    width: 262px;
     margin: 0 auto;
     margin-bottom: 30px;
   }

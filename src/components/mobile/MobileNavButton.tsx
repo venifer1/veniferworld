@@ -63,6 +63,7 @@ function MobileNavButton({ updateSetNavOpen, active, textH, textE, routeName }: 
   const goToAddr = () => {
     updateSetNavOpen(false);
     navigate(Addr);
+    document.body.style.overflow = 'scroll';
   };
 
   return (
