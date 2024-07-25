@@ -77,14 +77,14 @@ const Content = styled.div`
   align-items: stretch;
 `;
 const ContentTop = styled.div`
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   table {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-collapse: collapse;
     border: solid 3px #000000;
     margin-bottom: 20px;
